@@ -29,6 +29,7 @@ struct PlayView: View {
             
             Text("Cards Remaining: \(totalCards)")
         }
+        .toolbar(.hidden, for: .navigationBar)
     }
 }
 

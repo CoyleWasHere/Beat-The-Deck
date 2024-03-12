@@ -9,24 +9,54 @@ import SwiftUI
 
 struct HomeView: View {
     var body: some View {
-        VStack {
-            Text("Beat The Deck")
-            
-            Button {
-                // TODO: Navigate to PlayView
-                PlayView()
-            } label: {
-                Text("Start")
+        
+        // TODO: Adjust Fonts and Sizing of the words, else it is complete!
+        
+        NavigationStack{
+            VStack {
+                Text("Beat The Deck")
+                    .font(.largeTitle)
+                    .fontWeight(.bold)
+                    .foregroundStyle(.white)
+                
+                Spacer()
+                
+                NavigationLink {
+                    PlayView()
+                } label: {
+                    ZStack{
+                        Rectangle()
+                            .frame(width: 250, height: 110)
+                            .clipShape(RoundedRectangle(cornerRadius: 110))
+                            .foregroundStyle(Color(red: 12/255, green: 234/255, blue: 17/255))
+                        Text("Start")
+                            .foregroundStyle(.white)
+                            .font(.title)
+                            .fontWeight(.semibold)
+                    }
+                }
+                .padding(.bottom, 25)
+                
+                NavigationLink {
+                    InformationView()
+                } label: {
+                    ZStack{
+                        Rectangle()
+                            .frame(width: 250, height: 110)
+                            .clipShape(RoundedRectangle(cornerRadius: 110))
+                            .foregroundStyle(Color(red: 255/255, green: 165/255, blue: 0/255))
+                        Text("How to Play")
+                            .foregroundStyle(.white)
+                            .font(.title)
+                            .fontWeight(.semibold)
+                    }
+                }
+                .padding(.top, 25)
+                Spacer()
             }
-            
-            Button {
-                // TODO: Pop up modal view of InformationView
-                InformationView()
-            } label: {
-                Text("How To Play")
-            }
+            .padding()
+            .background(Image("background-cloth"))
         }
-        .padding()
     }
 }
 
