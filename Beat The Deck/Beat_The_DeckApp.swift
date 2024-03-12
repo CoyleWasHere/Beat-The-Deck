@@ -11,7 +11,7 @@ import SwiftUI
 struct Beat_The_DeckApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            HomeView()
         }
     }
 }

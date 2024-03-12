@@ -8,17 +8,21 @@
 
 /* Begin PBXBuildFile section */
 		FC8672D52BA098FA00EF3906 /* Beat_The_DeckApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC8672D42BA098FA00EF3906 /* Beat_The_DeckApp.swift */; };
-		FC8672D72BA098FA00EF3906 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC8672D62BA098FA00EF3906 /* ContentView.swift */; };
+		FC8672D72BA098FA00EF3906 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC8672D62BA098FA00EF3906 /* HomeView.swift */; };
 		FC8672D92BA098FC00EF3906 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FC8672D82BA098FC00EF3906 /* Assets.xcassets */; };
 		FC8672DC2BA098FC00EF3906 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FC8672DB2BA098FC00EF3906 /* Preview Assets.xcassets */; };
+		FC8672E32BA0992C00EF3906 /* PlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC8672E22BA0992C00EF3906 /* PlayView.swift */; };
+		FC8672E52BA0993E00EF3906 /* InformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC8672E42BA0993E00EF3906 /* InformationView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		FC8672D12BA098FA00EF3906 /* Beat The Deck.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Beat The Deck.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC8672D42BA098FA00EF3906 /* Beat_The_DeckApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Beat_The_DeckApp.swift; sourceTree = "<group>"; };
-		FC8672D62BA098FA00EF3906 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		FC8672D62BA098FA00EF3906 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		FC8672D82BA098FC00EF3906 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FC8672DB2BA098FC00EF3906 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		FC8672E22BA0992C00EF3906 /* PlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayView.swift; sourceTree = "<group>"; };
+		FC8672E42BA0993E00EF3906 /* InformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,7 +56,9 @@
 			isa = PBXGroup;
 			children = (
 				FC8672D42BA098FA00EF3906 /* Beat_The_DeckApp.swift */,
-				FC8672D62BA098FA00EF3906 /* ContentView.swift */,
+				FC8672D62BA098FA00EF3906 /* HomeView.swift */,
+				FC8672E22BA0992C00EF3906 /* PlayView.swift */,
+				FC8672E42BA0993E00EF3906 /* InformationView.swift */,
 				FC8672D82BA098FC00EF3906 /* Assets.xcassets */,
 				FC8672DA2BA098FC00EF3906 /* Preview Content */,
 			);
@@ -137,7 +143,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FC8672D72BA098FA00EF3906 /* ContentView.swift in Sources */,
+				FC8672E32BA0992C00EF3906 /* PlayView.swift in Sources */,
+				FC8672E52BA0993E00EF3906 /* InformationView.swift in Sources */,
+				FC8672D72BA098FA00EF3906 /* HomeView.swift in Sources */,
 				FC8672D52BA098FA00EF3906 /* Beat_The_DeckApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
