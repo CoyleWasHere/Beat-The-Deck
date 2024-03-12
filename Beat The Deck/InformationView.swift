@@ -11,11 +11,17 @@ struct InformationView: View {
     var body: some View {
         VStack{
             Text("How To Play")
+                .font(.title)
+                .underline()
             Text("Information with bullet points")
+            Spacer()
             Text("How To Win")
+                .font(.title)
+                .underline()
             Text("Information with bullet points")
-
+            Spacer()
         }
+        .padding()
     }
 }
 

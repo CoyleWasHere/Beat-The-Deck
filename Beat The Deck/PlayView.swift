@@ -10,17 +10,29 @@ import SwiftUI
 struct PlayView: View {
     
     @State var totalCards = 52
+    @State var showSheet = false
     
     var body: some View {
         VStack{
-            
-            Button{
-                // TODO: Display InformationView Modally
-                InformationView()
-            }label: {
-                Image(systemName: "info.circle.fill")
+            ZStack{
+                Text("Beat The Deck")
+                    .font(.largeTitle)
+                    .bold()
+                    .foregroundStyle(.white)
+                HStack{
+                    Spacer()
+                    Button{
+                        // TODO: Display InformationView Modally
+                        showSheet = true
+                    }label: {
+                        Image(systemName: "info.circle.fill")
+                            .font(.largeTitle)
+                            .foregroundStyle(.black)
+                    }
+                }
+                .padding()
             }
-            Text("Beat The Deck")
+            Spacer()
             
             // TODO: Use for loop to place 9 random cards from cards array onto the canvas
 //            for cards in 1..<8 {
@@ -28,8 +40,14 @@ struct PlayView: View {
 //            }
             
             Text("Cards Remaining: \(totalCards)")
+                .foregroundStyle(.white)
         }
+        .background(Image("background-cloth"))
         .toolbar(.hidden, for: .navigationBar)
+        .sheet(isPresented: $showSheet, content: {
+            InformationView()
+                .presentationDetents([.fraction(0.90)])
+        })
     }
 }
 
