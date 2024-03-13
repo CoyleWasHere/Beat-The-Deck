@@ -87,7 +87,6 @@ struct PlayView: View {
                     
                     var faceCard = Int.random(in: 2...14)
                     let drawnCard = Int.random(in: 2...14)
-                    var selectedCard = faceCard
                     
                     if flipCard != 1 {
                         Menu{
@@ -95,14 +94,17 @@ struct PlayView: View {
                                 // Draw Card
                                 // If card is higher leave new card on top of deck
                                 if faceCard < drawnCard {
-                                    selectedCard = drawnCard
                                     // Decrement Cards remaining
                                     totalCards -= 1
                                     print("The Next Card Was Higher \(drawnCard)")
+                                    print(card)
+                                    print(index)
                                 } else {
                                     // If card is equal or lower flip deck over to back of card
                                     flipCard = 1
                                     print("The Next Card Was Lower or Equal \(drawnCard)")
+                                    print(card)
+                                    print(index)
                                 }
                                 
                                 // Check if cards remaining is 0
@@ -142,8 +144,6 @@ struct PlayView: View {
                             Image("card\(faceCard)")
                                 .resizable()
                                 .frame(width: 100, height: 156)
-                                .onTapGesture {
-                                }
                         }
 
                     } else {
