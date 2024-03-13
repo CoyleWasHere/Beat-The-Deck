@@ -14,6 +14,7 @@ struct PlayView: View {
     @State var totalCards = 52
     @State var showSheet = false
     @State var cards = ["card2", "card3", "card4", "card5", "card6", "card7", "card8", "card9", "card10", "card11", "card12", "card13", "card14"]
+    
     @State var faceCard = Int.random(in: 2...14)
     @State var drawnCard = Int.random(in: 2...14)
     
@@ -120,7 +121,7 @@ struct PlayView: View {
                             } else {
                                 // If card is equal or lower flip deck over to back of card
                                 faceCard = 1
-                                print("The Next Card Was Higher \(drawnCard)")
+                                print("The Next Card Was Higher or Equal \(drawnCard)")
                             }
                             
                             // Check if cards remaining is 0
