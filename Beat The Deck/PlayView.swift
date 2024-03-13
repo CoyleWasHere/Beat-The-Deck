@@ -13,15 +13,10 @@ struct PlayView: View {
     
     @State var totalCards = 52
     @State var showSheet = false
-    @State var cards = ["card2", "card3", "card4", "card5", "card6", "card7", "card8", "card9", "card10", "card11", "card12", "card13", "card14"]
-    
-    @State var faceCard = Int.random(in: 2...14)
-    @State var drawnCard = Int.random(in: 2...14)
-    
+    @State var cards = ["card2", "card3", "card4", "card5", "card8", "card10", "card11", "card13", "card14"]
+    @State var flipCard = 0
     
     @State private var backAlert = false
-    
-    
     
     var body: some View {
         VStack{
@@ -87,92 +82,104 @@ struct PlayView: View {
             
             LazyVGrid(columns: [GridItem(spacing:20), GridItem(spacing:20), GridItem(spacing:20)], spacing: 20, content: {
                 
-                if faceCard != 1{
-                    Menu{
-                        Button{
-                            // Draw Card
-                            // If card is higher leave new card on top of deck
-                            if faceCard < drawnCard {
-                                faceCard = drawnCard
-                                // Decrement Cards remaining
-                                totalCards -= 1
-                                print("The Next Card Was Higher")
-                            } else {
-                                // If card is equal or lower flip deck over to back of card
-                                faceCard = 1
-                                print("The Next Card Was Lower \(drawnCard)")
+                // Select 9 cards from the array and place them in the grid
+                ForEach(Array(cards.enumerated()), id:\.element) { index, card in
+                    
+                    var faceCard = Int.random(in: 2...14)
+                    let drawnCard = Int.random(in: 2...14)
+                    var selectedCard = faceCard
+                    
+                    if flipCard != 1 {
+                        Menu{
+                            Button{
+                                // Draw Card
+                                // If card is higher leave new card on top of deck
+                                if faceCard < drawnCard {
+                                    selectedCard = drawnCard
+                                    // Decrement Cards remaining
+                                    totalCards -= 1
+                                    print("The Next Card Was Higher \(drawnCard)")
+                                } else {
+                                    // If card is equal or lower flip deck over to back of card
+                                    flipCard = 1
+                                    print("The Next Card Was Lower or Equal \(drawnCard)")
+                                }
+                                
+                                // Check if cards remaining is 0
+                                if totalCards == 0 {
+                                    // DISPLAY WIN SCREEN
+                                }
+                            }label: {
+                                Text("Higher")
                             }
-                            
-                            // Check if cards remaining is 0
-                            if totalCards == 0 {
-                                // DISPLAY WIN SCREEN
+                            Button{
+                                // Draw Card
+                                // If card is lower leave new card on top of deck
+                                if faceCard > drawnCard {
+                                    faceCard = drawnCard
+                                    // Decrement Cards remaining
+                                    totalCards -= 1
+                                    print("The Next Card Was Lower \(drawnCard)")
+                                } else {
+                                    // If card is equal or lower flip deck over to back of card
+                                    flipCard = 1
+                                    print("The Next Card Was Higher or Equal \(drawnCard)")
+                                }
+                                
+                                // Check if cards remaining is 0
+                                if totalCards == 0 {
+                                    // DISPLAY WIN SCREEN
+                                }
+                            }label: {
+                                Text("Lower")
                             }
-                        }label: {
-                            Text("Higher")
+                            Button{
+                                print("Choice Cancelled")
+                            }label: {
+                                Text("Cancel")
+                            }
+                        } label: {
+                            Image("card\(faceCard)")
+                                .resizable()
+                                .frame(width: 100, height: 156)
+                                .onTapGesture {
+                                }
                         }
-                        Button{
-                            // Draw Card
-                            // If card is lower leave new card on top of deck
-                            if faceCard > drawnCard {
-                                faceCard = drawnCard
-                                // Decrement Cards remaining
-                                totalCards -= 1
-                                print("The Next Card Was Lower")
-                            } else {
-                                // If card is equal or lower flip deck over to back of card
-                                faceCard = 1
-                                print("The Next Card Was Higher or Equal \(drawnCard)")
-                            }
-                            
-                            // Check if cards remaining is 0
-                            if totalCards == 0 {
-                                // DISPLAY WIN SCREEN
-                            }
-                        }label: {
-                            Text("Lower")
-                        }
-                        Button{
-                            print("Choice Cancelled")
-                        }label: {
-                            Text("Cancel")
-                        }
-                    } label: {
-                        Image("card\(faceCard)")
+
+                    } else {
+                        Image("card\(1)")
                             .resizable()
                             .frame(width: 100, height: 156)
                     }
-                } else {
-                    Image("card\(faceCard)")
-                        .resizable()
-                        .frame(width: 100, height: 156)
                 }
                 
-                Image("card3")
-                    .resizable()
-                    .frame(width: 100, height: 156)
-                Image("card4")
-                    .resizable()
-                    .frame(width: 100, height: 156)
-                Image("card5")
-                    .resizable()
-                    .frame(width: 100, height: 156)
-                Image("card6")
-                    .resizable()
-                    .frame(width: 100, height: 156)
-                Image("card7")
-                    .resizable()
-                    .frame(width: 100, height: 156)
-                Image("card8")
-                    .resizable()
-                    .frame(width: 100, height: 156)
-                Image("card9")
-                    .resizable()
-                    .frame(width: 100, height: 156)
-                Image("card10")
-                    .resizable()
-                    .frame(width: 100, height: 156)
-                
-                
+                // Add the functionality to each card
+//                Group{
+//                    Image("card3")
+//                        .resizable()
+//                        .frame(width: 100, height: 156)
+//                    Image("card4")
+//                        .resizable()
+//                        .frame(width: 100, height: 156)
+//                    Image("card5")
+//                        .resizable()
+//                        .frame(width: 100, height: 156)
+//                    Image("card6")
+//                        .resizable()
+//                        .frame(width: 100, height: 156)
+//                    Image("card7")
+//                        .resizable()
+//                        .frame(width: 100, height: 156)
+//                    Image("card8")
+//                        .resizable()
+//                        .frame(width: 100, height: 156)
+//                    Image("card9")
+//                        .resizable()
+//                        .frame(width: 100, height: 156)
+//                    Image("card10")
+//                        .resizable()
+//                        .frame(width: 100, height: 156)
+//                }
             })
             .padding()
             Spacer()
