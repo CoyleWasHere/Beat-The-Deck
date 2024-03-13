@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct HomeView: View {
+    
+    @State var showSheet = false
+    
     var body: some View {
         
         // TODO: Adjust Fonts and Sizing of the words, else it is complete!
@@ -37,8 +40,8 @@ struct HomeView: View {
                 }
                 .padding(.bottom, 25)
                 
-                NavigationLink {
-                    InformationView()
+                Button {
+                    showSheet = true
                 } label: {
                     ZStack{
                         Rectangle()
@@ -56,6 +59,10 @@ struct HomeView: View {
             }
             .padding()
             .background(Image("background-cloth"))
+            .sheet(isPresented: $showSheet, content: {
+                InformationView()
+                    .presentationDetents([.fraction(0.90)])
+            })
         }
     }
 }
