@@ -13,8 +13,6 @@ struct HomeView: View {
     
     var body: some View {
         
-        // TODO: Adjust Fonts and Sizing of the words, else it is complete!
-        
         NavigationStack{
             VStack {
                 Text("Beat The Deck")

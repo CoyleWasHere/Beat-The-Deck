@@ -23,7 +23,7 @@ struct PlayView: View {
     @State var cardCount = 0
     @State var gameNumber = 0
     @State var newNumber = 0
-    
+    @State var cardSelection = "ON"
     
     var body: some View {
         
@@ -87,9 +87,17 @@ struct PlayView: View {
                 // Select 9 cards from the array and place them in the grid
                 ForEach(gameCards.indices, id: \.self) { index in
                     
+                    
                     if totalCards != 0 {
                         Menu {
-                            if gameCards[index] != "card1" {
+                            if gameCards[index] == "back" {
+                                Button {
+                                    gameCards[index] = "back"
+                                } label: {
+                                    Text("Choose Another Card")
+                                }
+
+                            }else {
                                 Button {
                                     
                                     if let gameNumber = Int(gameCards[index].components(separatedBy: CharacterSet.decimalDigits.inverted).joined()) {
@@ -117,7 +125,7 @@ struct PlayView: View {
                                         totalCards -= 1
                                     } else {
                                         print("Loser")
-                                        gameCards[index] = "card1"
+                                        gameCards[index] = "back"
                                     }
                                     
                                     
@@ -151,7 +159,7 @@ struct PlayView: View {
                                         totalCards -= 1
                                     } else {
                                         print("Loser")
-                                        gameCards[index] = "card1"
+                                        gameCards[index] = "back"
                                     }
                                     
                                     
@@ -164,7 +172,6 @@ struct PlayView: View {
                                     Text("Cancel")
                                 }
                             }
-                            
                         } label: {
                             Image(gameCards[index])
                                 .resizable()
@@ -199,6 +206,7 @@ struct PlayView: View {
             if showDeal == true {
                 Button {
                     withAnimation {
+                        gameCards = []
                         dealCards()
                         showDeal = false
                         totalCards -= 9
@@ -247,7 +255,7 @@ struct PlayView: View {
                     } label: {
                         Text("Continue Playing")
                     }
-
+                    
                 }
             }
         }
