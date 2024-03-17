@@ -6,10 +6,12 @@
 //
 
 import SwiftUI
+import AVFoundation
 
 struct PlayView: View {
     
     @Environment(\.dismiss) private var dismiss
+    @State var audioPlayer:AVAudioPlayer?
     
     @State var totalCards = 52
     @State var showSheet = false
@@ -87,7 +89,6 @@ struct PlayView: View {
                 // Select 9 cards from the array and place them in the grid
                 ForEach(gameCards.indices, id: \.self) { index in
                     
-                    
                     if totalCards != 0 {
                         Menu {
                             if gameCards[index] == "back" {
@@ -99,6 +100,9 @@ struct PlayView: View {
                                 
                             }else {
                                 Button {
+                                    
+                                    flipCard()
+                                    audioPlayer?.play()
                                     
                                     if let gameNumber = Int(gameCards[index].components(separatedBy: CharacterSet.decimalDigits.inverted).joined()) {
                                         // Do something with this number
@@ -137,6 +141,9 @@ struct PlayView: View {
                                     Text("Higher")
                                 }
                                 Button {
+                                    
+                                    flipCard()
+                                    audioPlayer?.play()
                                     
                                     if let gameNumber = Int(gameCards[index].components(separatedBy: CharacterSet.decimalDigits.inverted).joined()) {
                                         // Do something with this number
@@ -218,6 +225,7 @@ struct PlayView: View {
                         dealCards()
                         showDeal = false
                         totalCards -= 9
+                        audioPlayer?.play()
                     }
                 } label: {
                     ZStack{
@@ -287,7 +295,53 @@ struct PlayView: View {
         // print(gameCards)
         // print(deck)
         cardCount = 0
+        
+        // Load the audio file
+        if let soundURL = Bundle.main.url(forResource: "dealCards", withExtension: "wav") {
+            do {
+                audioPlayer = try AVAudioPlayer(contentsOf: soundURL)
+                audioPlayer?.prepareToPlay()
+                audioPlayer?.numberOfLoops = 0 // Play infinitely
+            } catch {
+                print("Error loading sound file: \(error.localizedDescription)")
+            }
+        } else {
+            print("Sound file not found")
+        }
+        
+        
     }
+    
+    func flipCard() {
+        // Load the audio file
+        if let soundURL = Bundle.main.url(forResource: "flipCard", withExtension: "wav") {
+            do {
+                audioPlayer = try AVAudioPlayer(contentsOf: soundURL)
+                audioPlayer?.prepareToPlay()
+                audioPlayer?.numberOfLoops = 0 // Play infinitely
+            } catch {
+                print("Error loading sound file: \(error.localizedDescription)")
+            }
+        } else {
+            print("Sound file not found")
+        }
+    }
+    
+    func winner() {
+        // Load the audio file
+        if let soundURL = Bundle.main.url(forResource: "winner", withExtension: "wav") {
+            do {
+                audioPlayer = try AVAudioPlayer(contentsOf: soundURL)
+                audioPlayer?.prepareToPlay()
+                audioPlayer?.numberOfLoops = 0 // Play infinitely
+            } catch {
+                print("Error loading sound file: \(error.localizedDescription)")
+            }
+        } else {
+            print("Sound file not found")
+        }
+    }
+    
     
 }
 

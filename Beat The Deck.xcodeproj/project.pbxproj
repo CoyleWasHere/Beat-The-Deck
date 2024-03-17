@@ -13,6 +13,10 @@
 		FC8672DC2BA098FC00EF3906 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FC8672DB2BA098FC00EF3906 /* Preview Assets.xcassets */; };
 		FC8672E32BA0992C00EF3906 /* PlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC8672E22BA0992C00EF3906 /* PlayView.swift */; };
 		FC8672E52BA0993E00EF3906 /* InformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC8672E42BA0993E00EF3906 /* InformationView.swift */; };
+		FC8673062BA7AACC00EF3906 /* TheFatRat_Unity.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FC8673042BA7AACC00EF3906 /* TheFatRat_Unity.mp3 */; };
+		FC86730A2BA7AF8700EF3906 /* dealCards.wav in Resources */ = {isa = PBXBuildFile; fileRef = FC8673092BA7AF8700EF3906 /* dealCards.wav */; };
+		FC86730E2BA7B04400EF3906 /* winner.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FC86730D2BA7B04400EF3906 /* winner.mp3 */; };
+		FC8673102BA7B16300EF3906 /* flipCard.wav in Resources */ = {isa = PBXBuildFile; fileRef = FC86730F2BA7B16300EF3906 /* flipCard.wav */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +27,10 @@
 		FC8672DB2BA098FC00EF3906 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		FC8672E22BA0992C00EF3906 /* PlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayView.swift; sourceTree = "<group>"; };
 		FC8672E42BA0993E00EF3906 /* InformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationView.swift; sourceTree = "<group>"; };
+		FC8673042BA7AACC00EF3906 /* TheFatRat_Unity.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = TheFatRat_Unity.mp3; sourceTree = "<group>"; };
+		FC8673092BA7AF8700EF3906 /* dealCards.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = dealCards.wav; path = ../../../../../Sounds/dealCards.wav; sourceTree = "<group>"; };
+		FC86730D2BA7B04400EF3906 /* winner.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = winner.mp3; sourceTree = "<group>"; };
+		FC86730F2BA7B16300EF3906 /* flipCard.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = flipCard.wav; path = ../../../../../Sounds/flipCard.wav; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +68,7 @@
 				FC8672E22BA0992C00EF3906 /* PlayView.swift */,
 				FC8672E42BA0993E00EF3906 /* InformationView.swift */,
 				FC8672D82BA098FC00EF3906 /* Assets.xcassets */,
+				FC8673052BA7AACC00EF3906 /* Sounds */,
 				FC8672DA2BA098FC00EF3906 /* Preview Content */,
 			);
 			path = "Beat The Deck";
@@ -71,6 +80,17 @@
 				FC8672DB2BA098FC00EF3906 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		FC8673052BA7AACC00EF3906 /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				FC86730F2BA7B16300EF3906 /* flipCard.wav */,
+				FC86730D2BA7B04400EF3906 /* winner.mp3 */,
+				FC8673092BA7AF8700EF3906 /* dealCards.wav */,
+				FC8673042BA7AACC00EF3906 /* TheFatRat_Unity.mp3 */,
+			);
+			path = Sounds;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -131,8 +151,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FC86730A2BA7AF8700EF3906 /* dealCards.wav in Resources */,
 				FC8672DC2BA098FC00EF3906 /* Preview Assets.xcassets in Resources */,
 				FC8672D92BA098FC00EF3906 /* Assets.xcassets in Resources */,
+				FC8673102BA7B16300EF3906 /* flipCard.wav in Resources */,
+				FC8673062BA7AACC00EF3906 /* TheFatRat_Unity.mp3 in Resources */,
+				FC86730E2BA7B04400EF3906 /* winner.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

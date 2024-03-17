@@ -6,10 +6,12 @@
 //
 
 import SwiftUI
+import AVFoundation
 
 struct HomeView: View {
     
     @State var showSheet = false
+    @State var audioPlayer:AVAudioPlayer?
     
     var body: some View {
         
@@ -24,6 +26,9 @@ struct HomeView: View {
                 
                 NavigationLink {
                     PlayView()
+                        .onAppear(perform: {
+                            audioPlayer?.pause()
+                        })
                 } label: {
                     ZStack{
                         Rectangle()
@@ -61,8 +66,29 @@ struct HomeView: View {
                 InformationView()
                     .presentationDetents([.fraction(0.90)])
             })
+            .onAppear(perform: {
+                playMusic()
+                audioPlayer?.play()
+            })
         }
+                
     }
+    
+    func playMusic() {
+        // Load the audio file
+         if let soundURL = Bundle.main.url(forResource: "TheFatRat_Unity", withExtension: "mp3") {
+             do {
+                 audioPlayer = try AVAudioPlayer(contentsOf: soundURL)
+                 audioPlayer?.prepareToPlay()
+                 audioPlayer?.numberOfLoops = -1 // Play infinitely
+             } catch {
+                 print("Error loading sound file: \(error.localizedDescription)")
+             }
+         } else {
+             print("Sound file not found")
+         }
+    }
+    
 }
 
 #Preview {
