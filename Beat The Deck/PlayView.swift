@@ -17,8 +17,8 @@ struct PlayView: View {
     @State private var showDeal = true
     @State private var restartAlert = false
     
+    @State var deck = ["clubs_2", "clubs_3", "clubs_4", "clubs_5", "clubs_6", "clubs_7", "clubs_8", "clubs_9", "clubs_10", "clubs_11", "clubs_12", "clubs_13", "clubs_14", "diamonds_2", "diamonds_3", "diamonds_4", "diamonds_5", "diamonds_6", "diamonds_7", "diamonds_8", "diamonds_9", "diamonds_10", "diamonds_11", "diamonds_12", "diamonds_13", "diamonds_14", "hearts_2", "hearts_3", "hearts_4", "hearts_5", "hearts_6", "hearts_7", "hearts_8", "hearts_9", "hearts_10", "hearts_11", "hearts_12", "hearts_13", "hearts_14", "spades_2", "spades_3", "spades_4", "spades_5", "spades_6", "spades_7", "spades_8", "spades_9", "spades_10", "spades_11", "spades_12", "spades_13", "spades_14"]
     
-    var deck = ["card2", "card3", "card4", "card5", "card6", "card7", "card8", "card9", "card10", "card11", "card12", "card13", "card14"]
     @State var gameCards:[String] = []
     @State var cardCount = 0
     @State var gameNumber = 0
@@ -96,17 +96,17 @@ struct PlayView: View {
                                 } label: {
                                     Text("Choose Another Card")
                                 }
-
+                                
                             }else {
                                 Button {
                                     
                                     if let gameNumber = Int(gameCards[index].components(separatedBy: CharacterSet.decimalDigits.inverted).joined()) {
                                         // Do something with this number
-                                        print(gameNumber)
+                                        // print(gameNumber)
                                         self.gameNumber = gameNumber
                                     }
                                     
-                                    print("Higher")
+                                    // print("Higher")
                                     
                                     gameCards.insert(deck[newCard], at: index)
                                     
@@ -116,18 +116,22 @@ struct PlayView: View {
                                     
                                     if let newNumber = Int(gameCards[index].components(separatedBy: CharacterSet.decimalDigits.inverted).joined()) {
                                         // Do something with this number
-                                        print(newNumber)
+                                        // print(newNumber)
                                         self.newNumber = newNumber
                                     }
                                     
                                     if gameNumber < newNumber {
-                                        print("Winner")
-                                        totalCards -= 1
+                                        // print("Winner")
                                     } else {
-                                        print("Loser")
-                                        gameCards[index] = "back"
+                                        // print("Loser")
+                                        gameCards[index] = deck[newCard]
+                                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.8) {
+                                            gameCards[index] = "back"
+                                        }
                                     }
-                                    
+                                    totalCards -= 1
+                                    // print(deck[newCard])
+                                    deck.remove(at: newCard)
                                     
                                 } label: {
                                     Text("Higher")
@@ -136,11 +140,11 @@ struct PlayView: View {
                                     
                                     if let gameNumber = Int(gameCards[index].components(separatedBy: CharacterSet.decimalDigits.inverted).joined()) {
                                         // Do something with this number
-                                        print(gameNumber)
+                                        // print(gameNumber)
                                         self.gameNumber = gameNumber
                                     }
                                     
-                                    print("Lower")
+                                    // print("Lower")
                                     
                                     gameCards.insert(deck[newCard], at: index)
                                     
@@ -150,18 +154,22 @@ struct PlayView: View {
                                     
                                     if let newNumber = Int(gameCards[index].components(separatedBy: CharacterSet.decimalDigits.inverted).joined()) {
                                         // Do something with this number
-                                        print(newNumber)
+                                        // print(newNumber)
                                         self.newNumber = newNumber
                                     }
                                     
                                     if gameNumber > newNumber {
-                                        print("Winner")
-                                        totalCards -= 1
+                                        // print("Winner")
                                     } else {
-                                        print("Loser")
-                                        gameCards[index] = "back"
+                                        // print("Loser")
+                                        gameCards[index] = deck[newCard]
+                                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.8) {
+                                            gameCards[index] = "back"
+                                        }
                                     }
-                                    
+                                    totalCards -= 1
+                                    // print(deck[newCard])
+                                    deck.remove(at: newCard)
                                     
                                 } label: {
                                     Text("Lower")
@@ -244,6 +252,7 @@ struct PlayView: View {
                 .alert("Are you sure you want to restart?", isPresented: $restartAlert) {
                     Button {
                         withAnimation {
+                            deck = ["clubs_2", "clubs_3", "clubs_4", "clubs_5", "clubs_6", "clubs_7", "clubs_8", "clubs_9", "clubs_10", "clubs_11", "clubs_12", "clubs_13", "clubs_14", "diamonds_2", "diamonds_3", "diamonds_4", "diamonds_5", "diamonds_6", "diamonds_7", "diamonds_8", "diamonds_9", "diamonds_10", "diamonds_11", "diamonds_12", "diamonds_13", "diamonds_14", "hearts_2", "hearts_3", "hearts_4", "hearts_5", "hearts_6", "hearts_7", "hearts_8", "hearts_9", "hearts_10", "hearts_11", "hearts_12", "hearts_13", "hearts_14", "spades_2", "spades_3", "spades_4", "spades_5", "spades_6", "spades_7", "spades_8", "spades_9", "spades_10", "spades_11", "spades_12", "spades_13", "spades_14"]
                             gameCards = []
                             showDeal = true
                             totalCards = 52
@@ -272,9 +281,11 @@ struct PlayView: View {
         repeat {
             let randomCard = Int.random(in: 0..<deck.count)
             gameCards.append(deck[randomCard])
+            deck.remove(at: randomCard)
             cardCount += 1
         } while cardCount < 9
-        print(gameCards)
+        // print(gameCards)
+        // print(deck)
         cardCount = 0
     }
     
