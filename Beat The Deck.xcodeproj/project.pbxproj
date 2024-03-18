@@ -31,6 +31,7 @@
 		FC8673092BA7AF8700EF3906 /* dealCards.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = dealCards.wav; path = ../../../../../Sounds/dealCards.wav; sourceTree = "<group>"; };
 		FC86730D2BA7B04400EF3906 /* winner.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = winner.mp3; sourceTree = "<group>"; };
 		FC86730F2BA7B16300EF3906 /* flipCard.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = flipCard.wav; path = ../../../../../Sounds/flipCard.wav; sourceTree = "<group>"; };
+		FC8673112BA8B71600EF3906 /* Beat-The-Deck-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Beat-The-Deck-Info.plist"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +64,7 @@
 		FC8672D32BA098FA00EF3906 /* Beat The Deck */ = {
 			isa = PBXGroup;
 			children = (
+				FC8673112BA8B71600EF3906 /* Beat-The-Deck-Info.plist */,
 				FC8672D42BA098FA00EF3906 /* Beat_The_DeckApp.swift */,
 				FC8672D62BA098FA00EF3906 /* HomeView.swift */,
 				FC8672E22BA0992C00EF3906 /* PlayView.swift */,
@@ -307,6 +309,7 @@
 				DEVELOPMENT_TEAM = GMX7FB8LGL;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Beat-The-Deck-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -336,6 +339,7 @@
 				DEVELOPMENT_TEAM = GMX7FB8LGL;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Beat-The-Deck-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
