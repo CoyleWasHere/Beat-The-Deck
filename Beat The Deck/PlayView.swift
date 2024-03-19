@@ -13,7 +13,7 @@ struct PlayView: View {
     @Environment(\.dismiss) private var dismiss
     @State var audioPlayer:AVAudioPlayer?
     
-    @State var totalCards = 12
+    @State var totalCards = 52
     @State var showSheet = false
     @State private var backAlert = false
     @State private var showDeal = true
