@@ -16,6 +16,7 @@
 		FC8673162BA8BFB800EF3906 /* dealCards.wav in Resources */ = {isa = PBXBuildFile; fileRef = FC8673122BA8BFB800EF3906 /* dealCards.wav */; };
 		FC8673172BA8BFB800EF3906 /* flipCard.wav in Resources */ = {isa = PBXBuildFile; fileRef = FC8673132BA8BFB800EF3906 /* flipCard.wav */; };
 		FC8673182BA8BFB800EF3906 /* TheFatRat_Unity.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FC8673142BA8BFB800EF3906 /* TheFatRat_Unity.mp3 */; };
+		FC86731A2BA9125D00EF3906 /* Win.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FC8673192BA9125D00EF3906 /* Win.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		FC8673122BA8BFB800EF3906 /* dealCards.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = dealCards.wav; sourceTree = "<group>"; };
 		FC8673132BA8BFB800EF3906 /* flipCard.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = flipCard.wav; sourceTree = "<group>"; };
 		FC8673142BA8BFB800EF3906 /* TheFatRat_Unity.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = TheFatRat_Unity.mp3; sourceTree = "<group>"; };
+		FC8673192BA9125D00EF3906 /* Win.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Win.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +87,7 @@
 		FC8673152BA8BFB800EF3906 /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
+				FC8673192BA9125D00EF3906 /* Win.mp3 */,
 				FC8673122BA8BFB800EF3906 /* dealCards.wav */,
 				FC8673132BA8BFB800EF3906 /* flipCard.wav */,
 				FC8673142BA8BFB800EF3906 /* TheFatRat_Unity.mp3 */,
@@ -154,6 +157,7 @@
 				FC8672DC2BA098FC00EF3906 /* Preview Assets.xcassets in Resources */,
 				FC8673172BA8BFB800EF3906 /* flipCard.wav in Resources */,
 				FC8673162BA8BFB800EF3906 /* dealCards.wav in Resources */,
+				FC86731A2BA9125D00EF3906 /* Win.mp3 in Resources */,
 				FC8672D92BA098FC00EF3906 /* Assets.xcassets in Resources */,
 				FC8673182BA8BFB800EF3906 /* TheFatRat_Unity.mp3 in Resources */,
 			);
