@@ -128,6 +128,8 @@ struct PlayView: View {
                                         // print("Winner")
                                     } else {
                                         // print("Loser")
+                                        wrongCard()
+                                        audioPlayer?.play()
                                         gameCards[index] = deck[newCard]
                                         DispatchQueue.main.asyncAfter(deadline: .now() + 0.8) {
                                             gameCards[index] = "back"
@@ -169,6 +171,8 @@ struct PlayView: View {
                                         // print("Winner")
                                     } else {
                                         // print("Loser")
+                                        wrongCard()
+                                        audioPlayer?.play()
                                         gameCards[index] = deck[newCard]
                                         DispatchQueue.main.asyncAfter(deadline: .now() + 0.8) {
                                             gameCards[index] = "back"
@@ -334,6 +338,21 @@ struct PlayView: View {
     func winner() {
         // Load the audio file
         if let soundURL = Bundle.main.url(forResource: "Win", withExtension: "mp3") {
+            do {
+                audioPlayer = try AVAudioPlayer(contentsOf: soundURL)
+                audioPlayer?.prepareToPlay()
+                audioPlayer?.numberOfLoops = 0 // Play infinitely
+            } catch {
+                print("Error loading sound file: \(error.localizedDescription)")
+            }
+        } else {
+            print("Sound file not found")
+        }
+    }
+    
+    func wrongCard() {
+        // Load the audio file
+        if let soundURL = Bundle.main.url(forResource: "e-oh", withExtension: "mp3") {
             do {
                 audioPlayer = try AVAudioPlayer(contentsOf: soundURL)
                 audioPlayer?.prepareToPlay()
